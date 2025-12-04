@@ -383,3 +383,21 @@ void menu::on_tableView_doubleClicked(const QModelIndex &index)
     QString name = index.sibling(index.row(), 2).data().toString();
     QMessageBox::information(this, "انتخاب رکورد", "رکورد انتخاب‌شده: " + name);
 }
+void menu::on_ncEdit_editingFinished(){
+    QString nc1 = ui->ncEdit->text().trimmed();
+    QSqlQuery one;
+    one.prepare("SELECT FirstName , LastName , Phone FROM reception WHERE NationalNumber = '"+nc1+"'");
+    one.bindValue(":nc"  , nc1);
+    if(!one.exec()){
+        QMessageBox::critical(this , "خطا " , one.lastError().text());
+        return;
+    };
+    if(one.next()){
+        ui->nEdit->setText(one.value("FirstName").toString());
+        ui->lnEdit->setText(one.value("LastName").toString());
+        ui->pnEdit->setText(one.value("Phone").toString());
+    }else{
+        ui->ncEdit->setText(nc1);
+    }
+
+    }
