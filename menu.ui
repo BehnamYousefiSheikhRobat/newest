@@ -595,8 +595,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>300</y>
+      <x>760</x>
+      <y>350</y>
       <width>241</width>
       <height>27</height>
      </rect>
@@ -698,8 +698,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>260</y>
+      <x>760</x>
+      <y>320</y>
       <width>241</width>
       <height>27</height>
      </rect>
@@ -731,8 +731,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>330</y>
+      <x>760</x>
+      <y>380</y>
       <width>241</width>
       <height>30</height>
      </rect>
@@ -773,8 +773,8 @@
    <widget class="QPushButton" name="addCompanyButton">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>370</y>
+      <x>760</x>
+      <y>420</y>
       <width>121</width>
       <height>29</height>
      </rect>
@@ -930,6 +930,38 @@
     <property name="text">
      <string>شرکت:</string>
     </property>
+   </widget>
+   <widget class="QLineEdit" name="aEdit">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>290</y>
+      <width>121</width>
+      <height>28</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>260</y>
+      <width>241</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="ageedit"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>سن:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>

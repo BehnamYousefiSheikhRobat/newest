@@ -276,6 +276,20 @@ void menu::on_addCompanyButton_clicked()
         QMessageBox::information(this, "موفق", "شرکت با موفقیت افزوده شد.");
     }
 }
+void menu::on_ageedit_editingFinished()
+{
+    QDate today = QDate::currentDate();
+    QString birthdate = ui->ageedit->text();
+    QDate bd =jalaliToGregorian(birthdate);
+    int finalage = today.year() - bd.year();
+    if(today.month() < bd.month() || (today.month() > bd.month() && today.day() < bd.day())){
+        finalage--;
+    };
+    ui->aEdit->setText(QString::number(finalage + 1));
+
+
+};
+
 
 // ثبت پذیرش جدید
 void menu::on_registerButton_clicked()
@@ -407,3 +421,9 @@ void menu::on_ncEdit_editingFinished(){
     }
 
     }
+
+
+
+
+
+

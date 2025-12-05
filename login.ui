@@ -13,7 +13,17 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <spacer/>
+     <spacer>
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item>
      <widget class="QLineEdit" name="username_edit">
@@ -37,19 +47,29 @@
     </item>
     <item>
      <widget class="QPushButton" name="login_button">
-      <property name="text">
-       <string>ورود</string>
-      </property>
       <property name="maximumSize">
        <size>
         <width>150</width>
         <height>35</height>
        </size>
       </property>
+      <property name="text">
+       <string>ورود</string>
+      </property>
      </widget>
     </item>
     <item>
-     <spacer/>
+     <spacer>
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>

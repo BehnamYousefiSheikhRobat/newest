@@ -28,9 +28,17 @@ private slots:
     void on_tableView_doubleClicked(const QModelIndex &index);
     void on_filterByDateButton_clicked();
     void on_ncEdit_editingFinished();
+    void on_ageediting_Finished();
+
 
 
     void on_medicalType_2_clicked();
+
+    void on_lineEdit_editingFinished();
+
+    void on_ageedit_editingFinished();
+
+    void on_ageedit_cursorPositionChanged(int arg1, int arg2);
 
 private:
     Ui::menu *ui;
