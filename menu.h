@@ -27,6 +27,7 @@ private slots:
     void on_filterMedical_clicked();
     void on_tableView_doubleClicked(const QModelIndex &index);
     void on_filterByDateButton_clicked();
+    void on_ncEdit_editingFinished();
 
 
     void on_medicalType_2_clicked();

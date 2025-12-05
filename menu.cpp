@@ -116,6 +116,8 @@ void menu::on_filterByDateButton_clicked()
 {
     QString startDate = ui->startDateEdit->text();
     QString endDate = ui->endDateEdit->text();
+    QString comname = ui->comBox_2->currentText();
+
 
 
     if (startDate.isEmpty() || endDate.isEmpty()) {
@@ -133,7 +135,7 @@ void menu::on_filterByDateButton_clicked()
 
     auto *model = new QSqlTableModel(this, db);
     model->setTable("reception");
-    model->setFilter(QString("Date >= '%1' AND Date <= '%2'")
+    model->setFilter(QString("Date >= '%1' AND Date <= '%2' AND Company = '"+comname+"' ")
                          .arg(startDate)
                          .arg(endDate));
     model->select();
