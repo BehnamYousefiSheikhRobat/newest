@@ -117,7 +117,10 @@ void menu::on_filterByDateButton_clicked()
     QString startDate = ui->startDateEdit->text();
     QString endDate = ui->endDateEdit->text();
     QString comname = ui->comBox_2->currentText();
-
+    QString pay2 = ui->personpayButton_2->isChecked() ? "شخصی" :
+                      ui->companypayButton_2->isChecked() ? "شرکتی" : "نامشخص";
+    QString type2 = ui->driverType_2->isChecked() ? "راننده" :
+                       ui->medicalType_2->isChecked() ? "طب کار" : "نامشخص";
 
 
     if (startDate.isEmpty() || endDate.isEmpty()) {
@@ -132,12 +135,13 @@ void menu::on_filterByDateButton_clicked()
         QMessageBox::warning(this, "خطا", "فرمت تاریخ نامعتبر است.");
         return;
     }
-
     auto *model = new QSqlTableModel(this, db);
     model->setTable("reception");
-    model->setFilter(QString("Date >= '%1' AND Date <= '%2' AND Company = '"+comname+"' ")
+    model->setFilter(QString("Date >= '%1' AND Date <= '%2' AND Company ='%3' AND PaymentType = '%4' AND TYPE ='%5' ")
                          .arg(startDate)
-                         .arg(endDate));
+                         .arg(endDate).arg(comname).arg(pay2).arg(type2));
+    qDebug() << model->filter();
+
     model->select();
 
     if (model->rowCount() == 0) {
