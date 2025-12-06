@@ -42,6 +42,7 @@ menu::menu(QWidget *parent)
                      "Company TEXT,"
                      "ExamCost REAL,"
                      "PaymentType TEXT,"
+                     "Ag TEXT,"
                      "Type TEXT,"
                      "Date TEXT)");
 
@@ -248,6 +249,7 @@ void menu::refreshModel()
     model->setHeaderData(model->fieldIndex("PaymentType"), Qt::Horizontal, "نوع پرداخت");
     model->setHeaderData(model->fieldIndex("Type"), Qt::Horizontal, "نوع پذیرش");
     model->setHeaderData(model->fieldIndex("Date"), Qt::Horizontal, "تاریخ");
+    model->setHeaderData(model->fieldIndex("Ag"), Qt::Horizontal, "سن");
 
     ui->tableView->setModel(model);
     ui->tableView->hideColumn(model->fieldIndex("id"));
@@ -298,6 +300,7 @@ void menu::on_registerButton_clicked()
     QString fn = ui->nEdit->text();
     QString ln = ui->lnEdit->text();
     QString ph = ui->pnEdit->text();
+    QString ag = ui->aEdit->text();
     QString company = ui->comBox->currentText();
     QString pay = ui->personpayButton->isChecked() ? "شخصی" :
                       ui->companypayButton->isChecked() ? "شرکتی" : "نامشخص";
@@ -313,8 +316,8 @@ void menu::on_registerButton_clicked()
     }
 
     QSqlQuery insert;
-    insert.prepare("INSERT INTO reception (NationalNumber, FirstName, LastName, Phone, Company, ExamCost, PaymentType, Type, Date) "
-                   "VALUES (:nn, :fn, :ln, :ph, :co, :cost, :pt, :ty, :dt)");
+    insert.prepare("INSERT INTO reception (NationalNumber, FirstName, LastName, Phone, Company, ExamCost, PaymentType, Type, Date,Ag ) "
+                   "VALUES (:nn, :fn, :ln, :ph, :co, :cost, :pt, :ty, :dt, :ag)");
     insert.bindValue(":nn", nn);
     insert.bindValue(":fn", fn);
     insert.bindValue(":ln", ln);
@@ -324,6 +327,7 @@ void menu::on_registerButton_clicked()
     insert.bindValue(":pt", pay);
     insert.bindValue(":ty", type);
     insert.bindValue(":dt", date);
+    insert.bindValue(":ag" , ag);
 
     if (!insert.exec()) {
         QMessageBox::warning(this, "خطا", "ثبت اطلاعات با مشکل مواجه شد:\n" + insert.lastError().text());
