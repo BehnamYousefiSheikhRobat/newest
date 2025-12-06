@@ -24,6 +24,9 @@ menu::menu(QWidget *parent)
         return;
     }
 
+    // حذف جدول قدیمی
+
+
     // ساخت جدول شرکت‌ها
     QSqlQuery companyQuery;
     companyQuery.exec("CREATE TABLE IF NOT EXISTS companies ("
@@ -42,9 +45,9 @@ menu::menu(QWidget *parent)
                      "Company TEXT,"
                      "ExamCost REAL,"
                      "PaymentType TEXT,"
-                     "Ag TEXT,"
                      "Type TEXT,"
-                     "Date TEXT)");
+                     "Date TEXT,"
+                     "Ag TEXT)");
 
     // پر کردن لیست شرکت‌ها
     ui->comBox->clear();
