@@ -434,3 +434,17 @@ void menu::on_ncEdit_editingFinished(){
 
 
 
+
+    void menu::on_comBox_currentTextChanged(const QString &arg1)
+    {
+        QString cname = arg1;
+        QSqlQuery acceptpayment;
+        acceptpayment.exec("SELECT ExamCost FROM companies WHERE CompanyName = '"+cname+"'");
+
+        if(acceptpayment.next()){
+            ui->howmuchtopayEdit->setText(acceptpayment.value("ExamCost").toString());}else{
+            ui->howmuchtopayEdit->setText("");
+        }
+
+    }
+

@@ -40,6 +40,10 @@ private slots:
 
     void on_ageedit_cursorPositionChanged(int arg1, int arg2);
 
+    void on_comBox_activated(int index);
+
+    void on_comBox_currentTextChanged(const QString &arg1);
+
 private:
     Ui::menu *ui;
     QSqlDatabase db;
